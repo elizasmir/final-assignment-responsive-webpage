@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Notable&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #f2f2f2; 
+}
+
+/* Menu */
+.menu_list {
+    list-style: none;
+    margin: 0;
+    padding: 25px 0 5px;
+    text-align: center;
+    background: #f2f2f2;
+}
+.menu_list li {display: inline-block;}
+.menu_list li:after {
+    content: "|";
+    color: #000000;
+    display: inline-block;
+    vertical-align: top;
+}
+.menu_list a {
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 20px;
+    margin: 0 34px 0 30px;
+    font-size: 17px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color .2s;
+}
+.logo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5%;
+    top: 20px;
+}
+.menu_list a:visited {color: #000000;}
+.menu_list a:hover {color: #000000;}
+.menu_list a:before, .menu_list a:after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    top: auto;
+    right: 50%;
+    bottom: -5px;
+    left: 50%;
+    background: #000000;
+    transition: .5s;
+}
+.menu_list a:hover:before {left: 0;}
+.menu_list a:hover:after {right: 0;}  
+
+/* Banner */
+h1{
+    margin-top: -250px;
+    position: relative;  
+    text-align: center;
+    font-size: 16px;
+    color: #f2f2f2;
+    font-family: 'Notable', sans-serif;
+    letter-spacing: 3px;
+}
+.banner {
+    box-sizing: border-box;
+    min-height: 100%;
+    width: 100%;
+    padding-top: 45%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../img/photo-1567570473657-77e2cdb959dc.jpeg');
+    /* Parallax */
+    perspective: 1px; 
+    transform-style: preserve-3d;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+/* Footer */
+footer{
+    display: grid;
+    grid-template-columns: 2fr 50%;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+    grid-template-areas: "link  socialmedia";
+    background-color: #212121;
+}
+.links {
+    grid-area: link;
+    margin: 0;
+    padding: 25px 0 5px;
+    text-align: left;
+}
+.links li{
+    list-style-type: none;
+}
+.sites_links li a {
+    text-decoration: none;
+    color: #f2f2f2; 
+    font-size: 16px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin: 0px 14px 0 30px;
+}
+.sites_links li a:hover{color: #000000;}
+
+.subscribe {
+    grid-area: socialmedia;
+    place-self: center;
+}
+input {
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+input:hover {
+    box-shadow: 0 0 6px 3px #f2f2f2;
+}
+button {
+    padding: 10px 40px;
+    font-size: 15px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    color: gray;
+    background-color: #ffffff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+button:hover {
+    box-shadow: 0 0 6px 3px #f2f2f2;
+}
+
+/* For small screens */
+@media (max-width: 720px) {
+    /* Grid */
+    main {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;   
+        grid-template-areas: "banner  banner"
+                             "card_1  card_1"  
+                             "card_2  card_2"
+                             "card_3  card_3" 
+                             "card_4  card_4"
+                             "card_5  card_5"   
+                             "card_6  card_6"
+                             "footer  footer";
+    }
+    footer{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        grid-template-areas: "link  link"
+                             "socialmedia  socialmedia";
+    }
+
+    /* Menu */
+    .menu_list {padding-top: 0;}
+    .menu_list li {display: block;}
+    .menu_list li:after {content: none;}
+    .menu_list a {
+        padding: 25px 0 20px; 
+        margin: 10px 20px 40px;
+        top: 40px; 
+    }
+    .logo{
+        position: absolute;
+        left: 50%;
+        top: 15px;
+        transform: translateX(-50%);
+    }
+
+    /* Footer */
+    .links {
+        display: grid;
+        place-self: center;
+        text-align: center;}
+    .subscribe {
+        display: grid;
+        place-self: center;
+        margin: 20px;
+    }
+    .subscribe button{
+        width: 303px;
+        height: 41px;
+    }
+}
+
+/* For medium screens */
+@media all and (max-width: 950px) {
+    .subscribe button {
+        width: 306px;
+        height: 41px;
+    }
+  }
+
+/*Flexbox */
+.cards {
+    padding: .5vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-flow: row wrap;
+    display: flex;
+}
+.cards div { 
+    flex: auto;
+    width: 300px;
+    margin: 3vw;
+    text-align: center;
+}
+div img {
+    width: 100%;
+    height: auto;
+    overflow: hidden; 
+    transition: 0.2s;
+    border-radius: 3px;
+}
+/* Zoom on hover */
+div img:hover {
+    transform: scale(1.2);
+} 
+h3 span {
+    color: black;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+	letter-spacing: 2px;
+}
