@@ -14,7 +14,7 @@ html, body {
 header {
     grid-area: header;
 }
-main { 
+.main_index { 
     grid-area: main;
 }
 .banner {
@@ -41,7 +41,7 @@ main {
 footer {
     grid-area: footer;
 } 
-main {
+.main_index {
     display: grid;
     grid-template-columns: 2fr 50%;
     grid-template-rows: auto;
@@ -130,7 +130,8 @@ h1{
     overflow-x: scroll;
     overflow-y: hidden;
 }
-  
+
+  /* Cards */
 article{
     display: grid;
     align-items: center;
@@ -185,7 +186,6 @@ footer{
     margin: 0px 14px 0 30px;
 }
 .sites_links li a:hover{color: #000000;}
-
 .subscribe {
     grid-area: socialmedia;
     place-self: center;
@@ -215,7 +215,7 @@ button:hover {
 /* For small screens */
 @media (max-width: 720px) {
     /* Main */
-    main {
+    .main_index {
         grid-template-columns: 1fr;
         grid-gap: 20px;   
         grid-template-areas: "banner  banner"
@@ -276,8 +276,34 @@ button:hover {
     }
   }
 
-
-
-
-
-
+/*Flexbox */
+.cards {
+    padding: .5vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-flow: row wrap;
+    display: flex;
+}
+.cards div { 
+    flex: auto;
+    width: 300px;
+    margin: 3vw;
+    text-align: center;
+}
+div img {
+    width: 100%;
+    height: auto;
+    overflow: hidden; 
+    transition: 0.2s;
+    border-radius: 3px;
+}
+/* Zoom on hover */
+div img:hover {
+    transform: scale(1.2);
+} 
+h3 span {
+    color: black;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+	letter-spacing: 2px;
+}
